@@ -1,15 +1,19 @@
-const PORT = 1000;
+"use strict";
 
-import express from 'express';
+var _express = _interopRequireDefault(require("express"));
 
-// import type { $Application, $Request, $Response } from 'express'
+var _cards = require("./controllers/cards");
 
-const app = express();
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
+var PORT = 9000; // import express, {
+//   type $Application,
+//   type $Request,
+//   type $Response
+// } from 'express'
 
-app.listen(PORT, () => {
-  console.info(`Server listening on PORT ${PORT}`);
+var app = (0, _express.default)();
+app.get('/', _cards.viewCard);
+app.listen(PORT, function () {
+  console.info("Server listening on PORT ".concat(PORT));
 });
